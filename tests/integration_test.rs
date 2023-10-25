@@ -24,7 +24,7 @@ fn create_thread_pool_simple_test() {
         }
     }
 
-    //thread_pool.set_end_work();
+    thread_pool.set_end_work();
 }
 
 #[test]
@@ -35,11 +35,7 @@ fn create_thread_pool_simple_end_test() {
         assert!(thread_pool.add_job(test_fn_simple, true).is_ok());
     }
 
-    println!("Added all the jobs");
-
     thread_pool.set_end_work();
-
-    println!("end work");
 
     loop {
         let result = thread_pool.jobs_finished();
@@ -82,7 +78,7 @@ fn create_thread_pool_complex_test() {
         }
     }
 
-    //thread_pool.set_end_work();
+    thread_pool.set_end_work();
 
     assert_eq!(data.string_data.lock().unwrap().len(), num_jobs);
 }
